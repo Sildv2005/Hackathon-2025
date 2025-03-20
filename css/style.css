@@ -77,3 +77,61 @@ footer {
     padding: 20px;
     margin-top: 40px;
 }
+
+/* Shop container */
+.shop-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+}
+
+/* Styling voor een product */
+.product {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+/* Hover-effect voor product */
+.product:hover {
+    transform: scale(1.05);
+}
+
+/* Afbeelding van het product */
+.product-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Beschrijving van het product */
+.product-description h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.product-description p {
+    font-size: 1em;
+    color: #666;
+}
+
+/* Styling voor de koopknop */
+.buy-button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.buy-button:hover {
+    background-color: #218838;
+}
