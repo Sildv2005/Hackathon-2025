@@ -5,12 +5,12 @@
     font-family: Arial, sans-serif;
 }
 body {
-    background-color: #1e1e2f;
+    background-color: #473141;
     color: #fff;
     text-align: center;
 }
 header {
-    background: #ff4757;
+    background: #CB4757;
     padding: 20px;
     text-align: center;
 }
@@ -37,7 +37,7 @@ nav a:hover {
 }
 .hero {
     padding: 100px 20px;
-    background: linear-gradient(45deg, #ff4757, #ff6b81);
+    background: linear-gradient(360deg, #623645, #B04253);
 }
 .hero h2 {
     font-size: 2.5em;
