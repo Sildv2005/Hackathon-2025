@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diddyslayers</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background-color: #1e1e2f;
+            color: #fff;
+            text-align: center;
+        }
+        header {
+            background: #ff4757;
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 2.5em;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 10px 0;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            padding: 10px 15px;
+            transition: 0.3s;
+        }
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+        }
+        .hero {
+            padding: 100px 20px;
+            background: linear-gradient(45deg, #ff4757, #ff6b81);
+        }
+        .hero h2 {
+            font-size: 2.5em;
+        }
+        .cta-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px 30px;
+            background: #2ed573;
+            color: #fff;
+            font-size: 1.2em;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .cta-button:hover {
+            background: #1dd1a1;
+        }
+        section {
+            padding: 60px 20px;
+        }
+        #play button {
+            padding: 15px 30px;
+            background: #ff4757;
+            color: #fff;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        #play button:hover {
+            background: #e84118;
+        }
+        footer {
+            background: #141414;
+            padding: 20px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Diddyslayers</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">Over het spel</a></li>
+                <li><a href="#gameplay">Hoe het werkt</a></li>
+                <li><a href="#shop">Shop</a></li>
+                <li><a href="#play">Speel nu</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="hero">
+        <h2>Herken gevaarlijke situaties!</h2>
+        <p>Sorteer de kaarten in de juiste categorie en leer hoe je veilig blijft.</p>
+        <a href="#play" class="cta-button">Speel Nu</a>
+    </section>
+    
+    <section id="about">
+        <h2>Over Diddyslayers</h2>
+        <p>Diddyslayers is een serious game waarin je leert om veilige en onveilige situaties te herkennen. Sleep de kaarten naar de juiste categorie en ontdek hoe je jezelf kunt beschermen.</p>
+    </section>
+    
+    <section id="gameplay">
+        <h2>Hoe werkt het?</h2>
+        <p>Je krijgt een reeks kaarten met verschillende situaties. Het is jouw taak om ze correct te sorteren:</p>
+        <ul>
+            <li>Sleep de kaart naar *Veilig* of *Onveilig*</li>
+            <li>Krijg punten voor elke correcte indeling</li>
+            <li>Gebruik punten in de shop om hulpmiddelen te kopen</li>
+            <li>Voltooi alle levels en verdien de <strong>Groomer Slayer-badge</strong></li>
+        </ul>
+    </section>
+    
+    <section id="shop">
+        <h2>Shop</h2>
+        <p>Gebruik je verdiende punten om hulpmiddelen te kopen, zoals een telefoon om de politie te bellen of andere verdedigingsmiddelen.</p>
+    </section>
+    
+    <section id="play">
+        <h2>Speel de game</h2>
+        <p>Test je kennis en leer hoe je veilig blijft door kaarten correct te sorteren.</p>
+        <button id="startGame">Start de game</button>
+    </section>
+    
+    <footer>
+        <p>&copy; 2025 Diddyslayers. Alle rechten voorbehouden.</p>
+    </footer>
+    
+    <script>
+        document.getElementById("startGame").addEventListener("click", function() {
+            alert("De game wordt geladen..."); // Hier kan een link naar de echte game komen
+        });
+    </script>
+</body>
+</html>
