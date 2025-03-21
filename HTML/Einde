@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diddyslayers</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header>
+      <img src="assets/Icon.png" alt="Diddy Slayer" style="width: 35%" />
+      <nav>
+        <ul>
+          <li><a href="#about">Over het spel</a></li>
+          <li><a href="#gameplay">Hoe het werkt</a></li>
+          <li><a href="HTML/Shop.html">Shop</a></li>
+          <li><a href="HTML/cards.html">Speel nu</a></li>
+          <li><a href="#play" id="playNow">Speel nu</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <h1> Bedank voor het spelen </h1>
+    <p1> Dit is het einde van ons spel </p1>
+
+  </body>
+</html>
