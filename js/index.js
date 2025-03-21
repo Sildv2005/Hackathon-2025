@@ -47,9 +47,7 @@ class Player {
     });
   }
 
-  item_use(item) {
-
-  }
+  item_use(item) {}
 
   points_upd(amount) {
     if ((this.points + amount) > 0)
@@ -78,7 +76,6 @@ class Shop {
     const shop_container = document.querySelector(".shop-container");
 
     for (const k in this.items) {
-
       const 
       shop_div = document.createElement("div"),
       product_cost = document.createElement("cost"),
@@ -106,34 +103,18 @@ class Shop {
       
       product_desc.innerHTML = this.items[k].description;
       product_div.appendChild(product_desc);
-      
     }
-
-    /*
-
-    <div class="product">
-     <img src="/images/phone.jpeg" alt="Telefoon" class="product-image">
-     <div class="product-description">
-    <h2>Telefoon</h2>
-    <p>Gebruik om politie te bellen en de tijd van een vraag te verlengen. Zorg ervoor dat je altijd bereikbaar bent!</p>
-    <button class="buy-button" onclick="buyProduct('Telefoon')">Koop Telefoon</button>
-      </div>
-    </div>
-
-    */
   }
-
 }
 
-const player = new Player("test123", 0)
+const player = new Player("test123", 0);
 
 function initializeGame() {
-  s_title.innerHTML = `Situatie ${s_count + 1}`;
-  s_txt.innerHTML = situaties[s_count].content;
+  updateSituation();
   for (const k in cards) {
     const degArray = [-90, 90, 45, -45];
     cards[k].addEventListener("click", function() {
-      if (s_count <= situaties.length) {
+      if (s_count < situaties.length) {
         if (card_game_active === true) {
           if ((situaties[s_count].safe === true && k === "safe") || 
           (situaties[s_count].safe === false && k === "unsafe")) {
@@ -153,14 +134,22 @@ function initializeGame() {
               iterations: 1,
             } 
           );
-          s_count++;
-          s_title.innerHTML = `Situatie ${s_count + 1}`;
-          s_txt.innerHTML = situaties[s_count].content;
+          setTimeout(() => {
+            s_count++;
+            updateSituation();
+          }, 500);
         }
       } else {
         card_game_active = false;
       }
-    })
+    });
+  }
+}
+
+function updateSituation() {
+  if (s_count < situaties.length) {
+    s_title.innerHTML = `Situatie ${s_count + 1}`;
+    s_txt.innerHTML = situaties[s_count].content;
   }
 }
 
@@ -181,19 +170,11 @@ const shop = new Shop(
       img: '../assets/phone.jpeg',
       description: "Bel de politie om extra tijd te krijgen in een situatie."
     },
-
-    ["Red Army"]: {
-      stock: 1,
-      max_use: 1,
-      cost: 25,
-      img: '../assets/RedArmy.jpg',
-      description: "Het Rode Leger van de Sovjet Unie zal een divisie sturen om een einde te maken aan het reik van Diddy D.."
-    }
   }
 );
 
 if (document.URL.includes("Shop.html")) {
-  shop.setup(); // Setup shop
+  shop.setup();
 } else if (document.URL.includes("cards.html")) {
-  initializeGame(); // for initial setup
+  initializeGame();
 }
