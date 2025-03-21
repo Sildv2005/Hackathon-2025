@@ -75,8 +75,12 @@ class Player {
     if ((this.points + amount) > 0)
       this.points += amount;
       setCookie("points", this.points, 10);
+
+      if (document.URL.includes("cards.html")) {
+        document.querySelector("#points").innerHTML = `Punten: ${this.points}`;
+      }
+    }
   }
-}
 
 class Shop {
   constructor(items) {
@@ -108,7 +112,6 @@ class Shop {
 
       shop_div.addEventListener("click", function() {
         shop.buy(player, k, 1);
-        console.log(player.inventory);
       });
 
       shop_div.classList.add("product");
@@ -135,10 +138,11 @@ class Shop {
   }
 }
 
-const player = new Player("test123", 1000/* getCookie("points")*/);
+const player = new Player("player1", Number(getCookie("points")) );
 
 function initializeGame() {
   s_title.innerHTML = `Situatie ${s_count + 1}`;
+  document.querySelector("#points").innerHTML = `Punten: ${player.points}`;
   s_txt.innerHTML = situaties[s_count].content;
   for (const k in cards) {
     const degArray = [-90, 90, 45, -45];
