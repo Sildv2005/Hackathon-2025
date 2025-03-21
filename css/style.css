@@ -101,6 +101,12 @@ footer {
     transform: scale(1.05);
 }
 
+.product-cost { 
+    font-size: 1.5em;
+    margin: 10px 0 10px 0;
+    color: #333;
+}
+
 /* Afbeelding van het product */
 .product-image {
     width: 100%;
