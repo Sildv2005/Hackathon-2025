@@ -32,28 +32,53 @@ card_game_active = true;
 
 // Functions
 
+function setCookie(cname, cvalue, exdays) {
+  const d = new Date();
+  d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+  let expires = "expires="+d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+  let name = cname + "=";
+  let ca = document.cookie.split(';');
+  for(let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+
 class Player {
   constructor(username, points) {
     this.username = username;
     this.points = points;
     this.level = 0;
-    this.inventory = {};
+    this.inventory = [];
     this.badges = {};
   }
 
   inv_add(items) {
-    items.array.forEach(e => {
-      this.inventory.push(e);
+    items.forEach(element => {
+      this.inventory.push(element);
+      console.log(this.inventory);
     });
   }
 
-  item_use(item) {}
+  item_use(item) {
+
+  }
 
   points_upd(amount) {
     if ((this.points + amount) > 0)
       this.points += amount;
-    else this.points = 0;
-    points_element.innerHTML = `Punten: ${this.points}`;
+      setCookie("points", this.points, 10);
   }
 }
 
@@ -63,11 +88,11 @@ class Shop {
   }
 
   buy(player, item, amount) {
-    const get_item = this.items[item];
-    if (get_item.stock > 0) {
-      if (player.points >= get_item.cost) {
-        player.points_upd(-get_item.cost);
-        player.inv_add(item);
+    if (this.items[item].stock >= amount) {
+      if (player.points >= this.items[item].cost) {
+        this.items[item].stock -= amount;
+        player.points_upd(-(this.items[item].cost * amount));
+        player.inv_add([item]);
       }
     }
   }
@@ -83,6 +108,11 @@ class Shop {
       product_div = document.createElement("div"),
       product_name = document.createElement("h2"),
       product_desc = document.createElement("p");
+
+      shop_div.addEventListener("click", function() {
+        shop.buy(player, k, 1);
+        console.log(player.inventory);
+      });
 
       shop_div.classList.add("product");
       shop_container.appendChild(shop_div);
@@ -104,10 +134,24 @@ class Shop {
       product_desc.innerHTML = this.items[k].description;
       product_div.appendChild(product_desc);
     }
+
+    /*
+
+    <div class="product">
+     <img src="/images/phone.jpeg" alt="Telefoon" class="product-image">
+     <div class="product-description">
+    <h2>Telefoon</h2>
+    <p>Gebruik om politie te bellen en de tijd van een vraag te verlengen. Zorg ervoor dat je altijd bereikbaar bent!</p>
+    <button class="buy-button" onclick="buyProduct('Telefoon')">Koop Telefoon</button>
+      </div>
+    </div>
+
+    */
   }
+
 }
 
-const player = new Player("test123", 0);
+const player = new Player("test123", 0)
 
 function initializeGame() {
   updateSituation();
