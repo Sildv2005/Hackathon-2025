@@ -15,13 +15,31 @@
           <li><a href="#gameplay">Hoe het werkt</a></li>
           <li><a href="HTML/Shop.html">Shop</a></li>
           <li><a href="HTML/cards.html">Speel nu</a></li>
-          <li><a href="#play" id="playNow">Speel nu</a></li>
         </ul>
       </nav>
     </header>
 
-    <h1> Bedankt voor het spelen </h1>
-    <p1> Dit is het einde van ons spel </p1>
+    <section class="hero">
+      <h2>Bedankt voor het spelen!</h2>
+      <p>Dit is het einde van ons spel. We hopen dat je hebt geleerd hoe je gevaarlijke situaties kunt herkennen en vermijden.</p>
+      <a href="HTML/cards.html" class="cta-button" id="playAgain">Speel opnieuw</a>
+    </section>
 
+    <section id="about">
+      <h2>Over Diddyslayers</h2>
+    
+    </section>
+
+    <footer>
+      <p>&copy; 2025 Diddyslayers. Alle rechten voorbehouden.</p>
+    </footer>
+
+    <script>
+      document
+        .getElementById("playAgain")
+        .addEventListener("click", function () {
+          window.location.href = "HTML/cards.html";
+        });
+    </script>
   </body>
 </html>
