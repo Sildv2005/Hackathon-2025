@@ -192,11 +192,8 @@ const shop = new Shop(
   }
 );
 
-switch(window.location.pathname) {
-  case "/Hackathon-2025/HTML/Shop.html" :  
-    shop.setup(); // Setup shop
-    break;
-  case "/Hackathon-2025/HTML/cards.html" :
-    initializeGame(); // for initial setup
-    break;
+if (document.URL.includes("Shop.html")) {
+  shop.setup(); // Setup shop
+} else if (document.URL.includes("cards.html")) {
+  initializeGame(); // for initial setup
 }
